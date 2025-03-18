@@ -7,13 +7,15 @@ namespace HabitTracker
         public string Name { get; set; }
         public string Description { get; set; }
         public int Streak { get; private set; }
+        public int GoalStreak { get; set; }
         public DateTime? LastCompletedDate { get; private set; }
 
-        public Habit(string name, string description = "")
+        public Habit(string name, string description = "", int goalStreak =7)
         {
             Name = name;
             Description = description;
             Streak = 0;
+            GoalStreak = goalStreak;
             LastCompletedDate = null;
         }
 

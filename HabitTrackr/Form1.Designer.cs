@@ -37,6 +37,11 @@
             btnMarkDone = new Button();
             btnDeleteHabit = new Button();
             btnEditHabit = new Button();
+            progressBarHabit = new ProgressBar();
+            lblProgress = new Label();
+            numGoalStreak = new NumericUpDown();
+            lblCountStreak = new Label();
+            ((System.ComponentModel.ISupportInitialize)numGoalStreak).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -86,14 +91,15 @@
             // 
             lstHabits.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lstHabits.FormattingEnabled = true;
-            lstHabits.Location = new Point(12, 237);
+            lstHabits.Location = new Point(12, 267);
             lstHabits.Name = "lstHabits";
-            lstHabits.Size = new Size(352, 634);
+            lstHabits.Size = new Size(352, 604);
             lstHabits.TabIndex = 5;
+            lstHabits.SelectedIndexChanged += lstHabits_SelectedIndexChanged;
             // 
             // btnMarkDone
             // 
-            btnMarkDone.Location = new Point(39, 148);
+            btnMarkDone.Location = new Point(12, 190);
             btnMarkDone.Name = "btnMarkDone";
             btnMarkDone.Size = new Size(105, 23);
             btnMarkDone.TabIndex = 6;
@@ -121,12 +127,51 @@
             btnEditHabit.UseVisualStyleBackColor = true;
             btnEditHabit.Click += btnEditHabit_Click;
             // 
+            // progressBarHabit
+            // 
+            progressBarHabit.Location = new Point(122, 238);
+            progressBarHabit.Name = "progressBarHabit";
+            progressBarHabit.Size = new Size(213, 23);
+            progressBarHabit.TabIndex = 9;
+            // 
+            // lblProgress
+            // 
+            lblProgress.AutoSize = true;
+            lblProgress.Location = new Point(29, 246);
+            lblProgress.Name = "lblProgress";
+            lblProgress.Size = new Size(87, 15);
+            lblProgress.TabIndex = 10;
+            lblProgress.Text = "Streak Progress";
+            // 
+            // numGoalStreak
+            // 
+            numGoalStreak.Location = new Point(102, 124);
+            numGoalStreak.Maximum = new decimal(new int[] { 365, 0, 0, 0 });
+            numGoalStreak.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numGoalStreak.Name = "numGoalStreak";
+            numGoalStreak.Size = new Size(120, 23);
+            numGoalStreak.TabIndex = 11;
+            numGoalStreak.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // lblCountStreak
+            // 
+            lblCountStreak.AutoSize = true;
+            lblCountStreak.Location = new Point(22, 131);
+            lblCountStreak.Name = "lblCountStreak";
+            lblCountStreak.Size = new Size(66, 15);
+            lblCountStreak.TabIndex = 12;
+            lblCountStreak.Text = "Goal Streak";
+            // 
             // Form1
             // 
             AcceptButton = btnAddHabit;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(376, 882);
+            Controls.Add(lblCountStreak);
+            Controls.Add(numGoalStreak);
+            Controls.Add(lblProgress);
+            Controls.Add(progressBarHabit);
             Controls.Add(btnEditHabit);
             Controls.Add(btnDeleteHabit);
             Controls.Add(btnMarkDone);
@@ -138,6 +183,7 @@
             Controls.Add(label1);
             Name = "Form1";
             Text = "Habit Tracker";
+            ((System.ComponentModel.ISupportInitialize)numGoalStreak).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -153,5 +199,9 @@
         private Button btnMarkDone;
         private Button btnDeleteHabit;
         private Button btnEditHabit;
+        private ProgressBar progressBarHabit;
+        private Label lblProgress;
+        private NumericUpDown numGoalStreak;
+        private Label lblCountStreak;
     }
 }
